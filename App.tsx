@@ -11,6 +11,7 @@ import {Button, StyleSheet, useColorScheme, View} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import NativeSnackbar from './specs/NativeSnackbar';
+import NativeClearStorage from './specs/NativeClearStorage';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -26,9 +27,14 @@ function App(): React.JSX.Element {
   const callNativeMethod = () => {
     NativeSnackbar.showSnackbar('Hey there!');
   };
+  const clearStorage = () => {
+    NativeClearStorage.clearStorage();
+  };
+
   return (
     <View style={backgroundStyle}>
-      <Button title={'Hello'} onPress={callNativeMethod} />
+      <Button title={'Show Snackbar'} onPress={callNativeMethod} />
+      <Button title={'Clear Storage'} onPress={clearStorage} />
     </View>
   );
 }
